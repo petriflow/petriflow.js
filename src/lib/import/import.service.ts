@@ -676,7 +676,7 @@ export class ImportService {
         for (const xmlI18string of Array.from(xmlI18strings)) {
             const name = this.importUtils.tagAttribute(xmlI18string, 'name');
             try {
-                const translation = xmlI18string.innerHTML;
+                const translation = this.importUtils.parseDefinition(xmlI18string);
                 i18nNode.addI18n(new I18nString(translation, name));
             } catch (e) {
                 result.addError(`Importing i18n string '${name}' failed`, e as Error);

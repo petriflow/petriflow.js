@@ -252,7 +252,7 @@ export class ExportService {
                 this._exportUtils.exportTag(i18ns, 'i18nString', i18n.value, false, [{
                     key: 'name',
                     value: i18n.name ?? '',
-                }]);
+                }], true);
             });
             doc.appendChild(i18ns);
         });
