@@ -58,7 +58,7 @@ const MODEL_ROLES_LENGTH = 4;
 const MODEL_TRANSITIONS_LENGTH = 13;
 const MODEL_PLACES_LENGTH = 12;
 const MODEL_ARCS_LENGTH = 17;
-const MODEL_DATA_LENGTH = 24;
+const MODEL_DATA_LENGTH = 25;
 const MODEL_USERREFS_LENGTH = 2;
 const ROLE_1_ID = 'newRole_1';
 const ROLE_2_ID = 'newRole_2';
@@ -71,6 +71,7 @@ const ROLE_1_TITLE_NAME = 'role_1_title';
 const TIME_TRIGGER_EXACT = '2021-07-14T08:00:00.000Z';
 const TIME_TRIGGER_DELAY = 'PT5D';
 const TEST_FILE_PATH = 'src/test/resources/petriflow_test.xml';
+const TEST_HTML= 'test_html_i18n';
 
 describe('Petriflow integration tests', () => {
     let importService;
@@ -114,11 +115,12 @@ describe('Petriflow integration tests', () => {
 
     function assertI18n(locale, i18ns, model) {
         const i18nLocale = model.getI18n(locale);
-        expect(i18nLocale.getI18ns().length).toEqual(i18ns.length);
+        expect(i18nLocale.getI18ns().length).toEqual(i18ns.length + 1);
         i18ns.forEach(i => {
             expect(i18nLocale.getI18n(i)).not.toBeUndefined();
             expect(i18nLocale.getI18n(i).value).toEqual(`${locale.toUpperCase()}_${i}`);
         });
+        expect(i18nLocale.getI18n(TEST_HTML).value).toEqual(`<h2>${locale.toUpperCase()}_Title</h2>`)
     }
 
     function assertRoleRefLogic(roleRef, perform, delegate, cancel, assign, view) {
@@ -308,6 +310,13 @@ describe('Petriflow integration tests', () => {
         const textFieldComponent = textField.component;
         expect(textFieldComponent).not.toBeUndefined();
         expect(textFieldComponent.name).toEqual('area');
+        const htmlField = model.getData('newVariable_22');
+        expect(htmlField.type).toEqual(DataType.TEXT);
+        expect(htmlField.title.value).toEqual('HTML no translation');
+        expect(htmlField.init).not.toBeUndefined();
+        expect(htmlField.init.name).toEqual(TEST_HTML);
+        expect(htmlField.component.name).toEqual('htmltextarea');
+
         const enumerationField = model.getData('newVariable_3');
         expect(enumerationField).not.toBeUndefined();
         expect(enumerationField.options.length).toEqual(3);

@@ -509,55 +509,253 @@
         <title>i18n no translation</title>
         <init name="newVariable_21_name">newVariable_21 name value</init>
     </data>
+    <data type="text">
+        <id>newVariable_22</id>
+        <title>HTML no translation</title>
+        <init name="test_html_i18n"><![CDATA[<h2>Nadpis</h2>]]></init>
+        <component>
+            <name>htmltextarea</name>
+        </component>
+    </data>
     <!-- I18NS -->
     <i18n locale="uk">
-        <i18nString name="title">UK_title</i18nString>
-        <i18nString name="title">duplicate title</i18nString>
-        <i18nString name="p1_label">UK_p1_label</i18nString>
-        <i18nString name="t1_label">UK_t1_label</i18nString>
-        <i18nString name="role_1_title">UK_role_1_title</i18nString>
-        <i18nString name="role_2_title">UK_role_2_title</i18nString>
-        <i18nString name="role_3_title">UK_role_3_title</i18nString>
-        <i18nString name="role_4_title">UK_role_4_title</i18nString>
-        <i18nString name="newVariable_2_title">UK_newVariable_2_title</i18nString>
-        <i18nString name="newVariable_2_placeholder">UK_newVariable_2_placeholder</i18nString>
-        <i18nString name="newVariable_2_desc">UK_newVariable_2_desc</i18nString>
-        <i18nString name="newVariable_2_valid_email">UK_newVariable_2_valid_email</i18nString>
-        <i18nString name="t1_assign_message">UK_t1_assign_message</i18nString>
-        <i18nString name="t1_assign_title">UK_t1_assign_title</i18nString>
-        <i18nString name="t5_datagroup">UK_t5_datagroup</i18nString>
-        <i18nString name="newVariable_3_value1">UK_newVariable_3_value1</i18nString>
-        <i18nString name="newVariable_3_value2">UK_newVariable_3_value2</i18nString>
-        <i18nString name="newVariable_3_value3">UK_newVariable_3_value3</i18nString>
-        <i18nString name="newVariable_4_option_1">UK_newVariable_4_option_1</i18nString>
-        <i18nString name="newVariable_4_option_2">UK_newVariable_4_option_2</i18nString>
-        <i18nString name="newVariable_4_option_3">UK_newVariable_4_option_3</i18nString>
-        <i18nString name="newVariable_19_name">UK_newVariable_19_name</i18nString>
-        <i18nString name="case_create_message">UK_case_create_message</i18nString>
+        <i18nString name="title">
+            <![CDATA[
+            UK_title
+            ]]>
+        </i18nString>
+        <i18nString name="title">
+            <![CDATA[
+            duplicate title
+            ]]>
+        </i18nString>
+        <i18nString name="p1_label">
+            <![CDATA[
+            UK_p1_label
+            ]]>
+        </i18nString>
+        <i18nString name="t1_label">
+            <![CDATA[
+            UK_t1_label
+            ]]>
+        </i18nString>
+        <i18nString name="role_1_title">
+            <![CDATA[
+            UK_role_1_title
+            ]]>
+        </i18nString>
+        <i18nString name="role_2_title">
+            <![CDATA[
+            UK_role_2_title
+            ]]>
+        </i18nString>
+        <i18nString name="role_3_title">
+            <![CDATA[
+            UK_role_3_title
+            ]]>
+        </i18nString>
+        <i18nString name="role_4_title">
+            <![CDATA[
+            UK_role_4_title
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_2_title">
+            <![CDATA[
+            UK_newVariable_2_title
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_2_placeholder">
+            <![CDATA[
+            UK_newVariable_2_placeholder
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_2_desc">
+            <![CDATA[
+            UK_newVariable_2_desc
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_2_valid_email">
+            <![CDATA[
+            UK_newVariable_2_valid_email
+            ]]>
+        </i18nString>
+        <i18nString name="t1_assign_message">
+            <![CDATA[
+            UK_t1_assign_message
+            ]]>
+        </i18nString>
+        <i18nString name="t1_assign_title">
+            <![CDATA[
+            UK_t1_assign_title
+            ]]>
+        </i18nString>
+        <i18nString name="t5_datagroup">
+            <![CDATA[
+            UK_t5_datagroup
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_3_value1">
+            <![CDATA[
+            UK_newVariable_3_value1
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_3_value2">
+            <![CDATA[
+            UK_newVariable_3_value2
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_3_value3">
+            <![CDATA[
+            UK_newVariable_3_value3
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_4_option_1">
+            <![CDATA[
+            UK_newVariable_4_option_1
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_4_option_2">
+            <![CDATA[
+            UK_newVariable_4_option_2
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_4_option_3">
+            <![CDATA[
+            UK_newVariable_4_option_3
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_19_name">
+            <![CDATA[
+            UK_newVariable_19_name
+            ]]>
+        </i18nString>
+        <i18nString name="case_create_message">
+            <![CDATA[
+            UK_case_create_message
+            ]]>
+        </i18nString>
+        <i18nString name="test_html_i18n">
+            <![CDATA[
+            <h2>UK_Title</h2>
+            ]]>
+        </i18nString>
     </i18n>
     <i18n locale="de">
-        <i18nString name="title">DE_title</i18nString>
-        <i18nString name="p1_label">DE_p1_label</i18nString>
-        <i18nString name="t1_label">DE_t1_label</i18nString>
-        <i18nString name="role_1_title">DE_role_1_title</i18nString>
-        <i18nString name="role_2_title">DE_role_2_title</i18nString>
-        <i18nString name="role_3_title">DE_role_3_title</i18nString>
-        <i18nString name="role_4_title">DE_role_4_title</i18nString>
-        <i18nString name="newVariable_2_title">DE_newVariable_2_title</i18nString>
-        <i18nString name="newVariable_2_placeholder">DE_newVariable_2_placeholder</i18nString>
-        <i18nString name="newVariable_2_desc">DE_newVariable_2_desc</i18nString>
-        <i18nString name="newVariable_2_valid_email">DE_newVariable_2_valid_email</i18nString>
-        <i18nString name="t1_assign_message">DE_t1_assign_message</i18nString>
-        <i18nString name="t1_assign_title">DE_t1_assign_title</i18nString>
-        <i18nString name="t5_datagroup">DE_t5_datagroup</i18nString>
-        <i18nString name="newVariable_3_value1">DE_newVariable_3_value1</i18nString>
-        <i18nString name="newVariable_3_value2">DE_newVariable_3_value2</i18nString>
-        <i18nString name="newVariable_3_value3">DE_newVariable_3_value3</i18nString>
-        <i18nString name="newVariable_4_option_1">DE_newVariable_4_option_1</i18nString>
-        <i18nString name="newVariable_4_option_2">DE_newVariable_4_option_2</i18nString>
-        <i18nString name="newVariable_4_option_3">DE_newVariable_4_option_3</i18nString>
-        <i18nString name="newVariable_19_name">DE_newVariable_19_name</i18nString>
-        <i18nString name="case_create_message">DE_case_create_message</i18nString>
+        <i18nString name="title">
+            <![CDATA[
+            DE_title
+            ]]>
+        </i18nString>
+        <i18nString name="p1_label">
+            <![CDATA[
+            DE_p1_label
+            ]]>
+        </i18nString>
+        <i18nString name="t1_label">
+            <![CDATA[
+            DE_t1_label
+            ]]>
+        </i18nString>
+        <i18nString name="role_1_title">
+            <![CDATA[
+            DE_role_1_title
+            ]]>
+        </i18nString>
+        <i18nString name="role_2_title">
+            <![CDATA[
+            DE_role_2_title
+            ]]>
+        </i18nString>
+        <i18nString name="role_3_title">
+            <![CDATA[
+            DE_role_3_title
+            ]]>
+        </i18nString>
+        <i18nString name="role_4_title">
+            <![CDATA[
+            DE_role_4_title
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_2_title">
+            <![CDATA[
+            DE_newVariable_2_title
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_2_placeholder">
+            <![CDATA[
+            DE_newVariable_2_placeholder
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_2_desc">
+            <![CDATA[
+            DE_newVariable_2_desc
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_2_valid_email">
+            <![CDATA[
+            DE_newVariable_2_valid_email
+            ]]>
+        </i18nString>
+        <i18nString name="t1_assign_message">
+            <![CDATA[
+            DE_t1_assign_message
+            ]]>
+        </i18nString>
+        <i18nString name="t1_assign_title">
+            <![CDATA[
+            DE_t1_assign_title
+            ]]>
+        </i18nString>
+        <i18nString name="t5_datagroup">
+            <![CDATA[
+            DE_t5_datagroup
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_3_value1">
+            <![CDATA[
+            DE_newVariable_3_value1
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_3_value2">
+            <![CDATA[
+            DE_newVariable_3_value2
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_3_value3">
+            <![CDATA[
+            DE_newVariable_3_value3
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_4_option_1">
+            <![CDATA[
+            DE_newVariable_4_option_1
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_4_option_2">
+            <![CDATA[
+            DE_newVariable_4_option_2
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_4_option_3">
+            <![CDATA[
+            DE_newVariable_4_option_3
+            ]]>
+        </i18nString>
+        <i18nString name="newVariable_19_name">
+            <![CDATA[
+            DE_newVariable_19_name
+            ]]>
+        </i18nString>
+        <i18nString name="case_create_message">
+            <![CDATA[
+            DE_case_create_message
+            ]]>
+        </i18nString>
+        <i18nString name="test_html_i18n">
+            <![CDATA[
+            <h2>DE_Title</h2>
+            ]]>
+        </i18nString>
     </i18n>
     <i18n locale="sk">
     </i18n>
