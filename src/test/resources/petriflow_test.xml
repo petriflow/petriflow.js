@@ -506,12 +506,12 @@
     </data>
     <data type="i18n">
         <id>newVariable_21</id>
-        <title>i18n no translation</title>
+        <title>i18n init translation</title>
         <init name="newVariable_21_name">newVariable_21 name value</init>
     </data>
     <data type="text">
         <id>newVariable_22</id>
-        <title>HTML no translation</title>
+        <title>HTMLTextArea init translation with HTML</title>
         <init name="test_html_i18n"><![CDATA[<h2>Nadpis</h2>]]></init>
         <component>
             <name>htmltextarea</name>
@@ -636,7 +636,7 @@
         </i18nString>
         <i18nString name="test_html_i18n">
             <![CDATA[
-            <h2>UK_Title</h2>
+            <h2>UK_test_html_i18n</h2>
             ]]>
         </i18nString>
     </i18n>
@@ -753,7 +753,7 @@
         </i18nString>
         <i18nString name="test_html_i18n">
             <![CDATA[
-            <h2>DE_Title</h2>
+            <h2>DE_test_html_i18n</h2>
             ]]>
         </i18nString>
     </i18n>

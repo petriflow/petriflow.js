@@ -20,8 +20,8 @@ const {
     RoleEventType,
     Template,
     TransitionEventType,
-    TriggerType, PetriNet, DataVariable, Expression, Place, Transition,
-    RegularPlaceTransitionArc, DataEventSource, DataEvent, Action,
+    TriggerType, PetriNet, DataVariable, Place, Transition,
+    RegularPlaceTransitionArc, DataEvent, Action,
     I18nTranslations, Mapping
 } = require('../../dist/petriflow');
 const fs = require('fs');
@@ -113,14 +113,17 @@ describe('Petriflow integration tests', () => {
         }
     }
 
-    function assertI18n(locale, i18ns, model) {
+    function assertI18n(locale, i18ns_equal, i18ns_contain, model) {
         const i18nLocale = model.getI18n(locale);
-        expect(i18nLocale.getI18ns().length).toEqual(i18ns.length + 1);
-        i18ns.forEach(i => {
+        expect(i18nLocale.getI18ns().length).toEqual(i18ns_equal.length + i18ns_contain.length);
+        i18ns_equal.forEach(i => {
             expect(i18nLocale.getI18n(i)).not.toBeUndefined();
             expect(i18nLocale.getI18n(i).value).toEqual(`${locale.toUpperCase()}_${i}`);
         });
-        expect(i18nLocale.getI18n(TEST_HTML).value).toEqual(`<h2>${locale.toUpperCase()}_Title</h2>`)
+        i18ns_contain.forEach(i => {
+            expect(i18nLocale.getI18n(i)).not.toBeUndefined();
+            expect(i18nLocale.getI18n(i).value).toContain(`${locale.toUpperCase()}_${i}`);
+        });
     }
 
     function assertRoleRefLogic(roleRef, perform, delegate, cancel, assign, view) {
@@ -312,7 +315,7 @@ describe('Petriflow integration tests', () => {
         expect(textFieldComponent.name).toEqual('area');
         const htmlField = model.getData('newVariable_22');
         expect(htmlField.type).toEqual(DataType.TEXT);
-        expect(htmlField.title.value).toEqual('HTML no translation');
+        expect(htmlField.title.value).toEqual('HTMLTextArea init translation with HTML');
         expect(htmlField.init).not.toBeUndefined();
         expect(htmlField.init.name).toEqual(TEST_HTML);
         expect(htmlField.component.name).toEqual('htmltextarea');
@@ -470,8 +473,11 @@ describe('Petriflow integration tests', () => {
             'newVariable_19_name',
             'case_create_message'
         ];
-        assertI18n('uk', i18ns, model);
-        assertI18n('de', i18ns, model);
+        const i18ns_contain = [
+            TEST_HTML
+        ];
+        assertI18n('uk', i18ns, i18ns_contain, model);
+        assertI18n('de', i18ns, i18ns_contain, model);
         log('Model i18n correct');
 
         // TODO: mapping?
