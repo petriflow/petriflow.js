@@ -20,8 +20,8 @@ const {
     RoleEventType,
     Template,
     TransitionEventType,
-    TriggerType, PetriNet, DataVariable, Expression, Place, Transition,
-    RegularPlaceTransitionArc, DataEventSource, DataEvent, Action,
+    TriggerType, PetriNet, DataVariable, Place, Transition,
+    RegularPlaceTransitionArc, DataEvent, Action,
     I18nTranslations, Mapping
 } = require('../../dist/petriflow');
 const fs = require('fs');
@@ -58,7 +58,7 @@ const MODEL_ROLES_LENGTH = 4;
 const MODEL_TRANSITIONS_LENGTH = 13;
 const MODEL_PLACES_LENGTH = 12;
 const MODEL_ARCS_LENGTH = 17;
-const MODEL_DATA_LENGTH = 24;
+const MODEL_DATA_LENGTH = 25;
 const MODEL_USERREFS_LENGTH = 2;
 const ROLE_1_ID = 'newRole_1';
 const ROLE_2_ID = 'newRole_2';
@@ -71,6 +71,7 @@ const ROLE_1_TITLE_NAME = 'role_1_title';
 const TIME_TRIGGER_EXACT = '2021-07-14T08:00:00.000Z';
 const TIME_TRIGGER_DELAY = 'PT5D';
 const TEST_FILE_PATH = 'src/test/resources/petriflow_test.xml';
+const TEST_HTML= 'test_html_i18n';
 
 describe('Petriflow integration tests', () => {
     let importService;
@@ -112,12 +113,16 @@ describe('Petriflow integration tests', () => {
         }
     }
 
-    function assertI18n(locale, i18ns, model) {
+    function assertI18n(locale, i18ns_equal, i18ns_contain, model) {
         const i18nLocale = model.getI18n(locale);
-        expect(i18nLocale.getI18ns().length).toEqual(i18ns.length);
-        i18ns.forEach(i => {
+        expect(i18nLocale.getI18ns().length).toEqual(i18ns_equal.length + i18ns_contain.length);
+        i18ns_equal.forEach(i => {
             expect(i18nLocale.getI18n(i)).not.toBeUndefined();
             expect(i18nLocale.getI18n(i).value).toEqual(`${locale.toUpperCase()}_${i}`);
+        });
+        i18ns_contain.forEach(i => {
+            expect(i18nLocale.getI18n(i)).not.toBeUndefined();
+            expect(i18nLocale.getI18n(i).value).toContain(`${locale.toUpperCase()}_${i}`);
         });
     }
 
@@ -308,6 +313,13 @@ describe('Petriflow integration tests', () => {
         const textFieldComponent = textField.component;
         expect(textFieldComponent).not.toBeUndefined();
         expect(textFieldComponent.name).toEqual('area');
+        const htmlField = model.getData('newVariable_22');
+        expect(htmlField.type).toEqual(DataType.TEXT);
+        expect(htmlField.title.value).toEqual('HTMLTextArea init translation with HTML');
+        expect(htmlField.init).not.toBeUndefined();
+        expect(htmlField.init.name).toEqual(TEST_HTML);
+        expect(htmlField.component.name).toEqual('htmltextarea');
+
         const enumerationField = model.getData('newVariable_3');
         expect(enumerationField).not.toBeUndefined();
         expect(enumerationField.options.length).toEqual(3);
@@ -461,8 +473,11 @@ describe('Petriflow integration tests', () => {
             'newVariable_19_name',
             'case_create_message'
         ];
-        assertI18n('uk', i18ns, model);
-        assertI18n('de', i18ns, model);
+        const i18ns_contain = [
+            TEST_HTML
+        ];
+        assertI18n('uk', i18ns, i18ns_contain, model);
+        assertI18n('de', i18ns, i18ns_contain, model);
         log('Model i18n correct');
 
         // TODO: mapping?
