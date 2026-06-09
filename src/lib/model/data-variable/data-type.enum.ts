@@ -16,5 +16,8 @@ export enum DataType {
     TASK_REF = 'taskRef',
     CASE_REF = 'caseRef',
     FILTER = 'filter',
+    CASE_FILTER = 'caseFilter',
+    TASK_FILTER = 'taskFilter',
+    PROCESS_FILTER = 'processFilter',
     I18N = 'i18n'
 }

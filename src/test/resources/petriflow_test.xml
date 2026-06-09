@@ -509,6 +509,21 @@
         <title>i18n no translation</title>
         <init name="newVariable_21_name">newVariable_21 name value</init>
     </data>
+    <data type="caseFilter">
+        <id>newVariable_22</id>
+        <title>title</title>
+        <init>*</init>
+    </data>
+    <data type="taskFilter">
+        <id>newVariable_23</id>
+        <title>title</title>
+        <init>*</init>
+    </data>
+    <data type="processFilter">
+        <id>newVariable_24</id>
+        <title>title</title>
+        <init>*</init>
+    </data>
     <!-- I18NS -->
     <i18n locale="uk">
         <i18nString name="title">UK_title</i18nString>
