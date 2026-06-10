@@ -200,6 +200,9 @@ export class ImportService {
             try {
                 const id = this.importUtils.tagValue(xmlData, 'id');
                 const type = this.importUtils.tagAttribute(xmlData, 'type') as DataType;
+                if (type === DataType.FILTER) {
+                    modelResult.addWarning(`Data type "${DataType.FILTER}" is deprecated. Use one of: ${DataType.CASE_FILTER}, ${DataType.TASK_FILTER} or ${DataType.PROCESS_FILTER}`);
+                }
                 const data = new DataVariable(id, type);
                 this.parseData(modelResult, xmlData, data);
             } catch (e) {

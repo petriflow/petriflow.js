@@ -58,7 +58,7 @@ const MODEL_ROLES_LENGTH = 4;
 const MODEL_TRANSITIONS_LENGTH = 13;
 const MODEL_PLACES_LENGTH = 12;
 const MODEL_ARCS_LENGTH = 17;
-const MODEL_DATA_LENGTH = 24;
+const MODEL_DATA_LENGTH = 27;
 const MODEL_USERREFS_LENGTH = 2;
 const ROLE_1_ID = 'newRole_1';
 const ROLE_2_ID = 'newRole_2';
@@ -434,6 +434,18 @@ describe('Petriflow integration tests', () => {
         expect(i18nField3).not.toBeUndefined();
         expect(i18nField3.init).not.toBeUndefined();
         expect(i18nField3.init.name).toEqual('newVariable_21_name');
+        const caseFilterField = model.getData('newVariable_22');
+        expect(caseFilterField).not.toBeUndefined();
+        expect(caseFilterField.init).not.toBeUndefined();
+        expect(caseFilterField.type).toEqual(DataType.CASE_FILTER)
+        const taskFilterField = model.getData('newVariable_23');
+        expect(taskFilterField).not.toBeUndefined();
+        expect(taskFilterField.init).not.toBeUndefined();
+        expect(taskFilterField.type).toEqual(DataType.TASK_FILTER)
+        const processFilterField = model.getData('newVariable_24');
+        expect(processFilterField).not.toBeUndefined();
+        expect(processFilterField.init).not.toBeUndefined();
+        expect(processFilterField.type).toEqual(DataType.PROCESS_FILTER)
         log('Model data correct');
 
         expect(model.getI18ns().length).toEqual(3);
@@ -810,9 +822,9 @@ describe('Petriflow integration tests', () => {
     test('should import & export', () => {
         let file = fs.readFileSync(TEST_FILE_PATH).toString();
         debug = false;
-        const model1 = importAndExport(file, 18, 22, 9);
+        const model1 = importAndExport(file, 18, 23, 9);
         expect(model1).toBeDefined();
-        const model2 = importAndExport(model1, 0, 20, 0);
+        const model2 = importAndExport(model1, 0, 21, 0);
         expect(model2).toBeDefined();
         expect(model1).toEqual(model2);
     });

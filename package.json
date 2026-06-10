@@ -1,6 +1,6 @@
 {
     "name": "@netgrif/petriflow",
-    "version": "2.2.2",
+    "version": "2.2.3",
     "description": "Javascript / Typescript library of Petriflow objects",
     "main": "dist/petriflow.js",
     "module": "dist/petriflow.esm.js",
