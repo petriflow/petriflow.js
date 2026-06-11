@@ -79,8 +79,8 @@ You can now safely **delete all between two horizontal lines**, so the instructi
   - [ ] Unit tests
   - [ ] Integration tests
 - [ ] I have checked my contribution with code analysis tools:
-  - [ ] [SonarCloud](https://sonarcloud.io/project/overview?id=netgrif_petriflow.js)
-  - [ ] [Snyk](https://app.snyk.io/org/netgrif)
+  - [ ] [SonarCloud](https://sonarcloud.io/project/overview?id=petriflow_petriflow.js)
+  - [ ] [Snyk](https://app.snyk.io/org/petriflow)
 - [ ] I have made corresponding changes to the documentation:
   - [ ] Developer documentation
   - [ ] User Guides

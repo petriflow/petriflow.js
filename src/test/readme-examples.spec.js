@@ -8,7 +8,7 @@ describe('README Examples test', () => {
 
     test('should fetch petriflow file & import', done => {
         const https = require('https');
-        https.get('https://raw.githubusercontent.com/netgrif/petriflow/main/examples/order-approval.xml', (res) => {
+        https.get('https://raw.githubusercontent.com/petriflow/petriflow/main/examples/order-approval.xml', (res) => {
             let body = '';
             res.on('data', chunk => body += chunk);
             res.on('end', () => {

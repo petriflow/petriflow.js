@@ -1,14 +1,14 @@
 # Petriflow.js
 
-[![GitHub](https://img.shields.io/github/license/netgrif/petriflow.js)](https://www.apache.org/licenses/LICENSE-2.0)
+[![GitHub](https://img.shields.io/github/license/petriflow/petriflow.js)](https://www.apache.org/licenses/LICENSE-2.0)
 [![npm dev dependency version (scoped)](https://img.shields.io/npm/dependency-version/@netgrif/petriflow/dev/typescript?label=Typescript)](https://www.typescriptlang.org/)
 [![Petriflow 1.0.1](https://img.shields.io/badge/Petriflow-1.0.1-0aa8ff)](https://petriflow.com)
 [![npm (scoped)](https://img.shields.io/npm/v/@netgrif/petriflow)](https://www.npmjs.com/package/@netgrif/petriflow)
-[![npm](https://img.shields.io/npm/dt/@netgrif/petriflow)](https://www.npmjs.com/package/@netgrif/petriflow)
+[![npm](https://img.shields.io/npm/dt/@netgrif/petriflow)](https://www.npmjs.com/package/@petriflow/petriflow)
 [![build](https://github.com/petriflow/petriflow.js/actions/workflows/master-build.yml/badge.svg)](https://github.com/petriflow/petriflow.js/actions/workflows/release-build.yml)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=netgrif_petriflow.js&metric=alert_status)](https://sonarcloud.io/dashboard?id=netgrif_petriflow.js)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=netgrif_petriflow.js&metric=coverage)](https://sonarcloud.io/dashboard?id=netgrif_petriflow.js)
-[![Known Vulnerabilities](https://snyk.io/test/github/netgrif/petriflow.js/badge.svg)](https://snyk.io/test/github/netgrif/petriflow.js)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=petriflow_petriflow.js&metric=alert_status)](https://sonarcloud.io/dashboard?id=petriflow_petriflow.js)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=petriflow_petriflow.js&metric=coverage)](https://sonarcloud.io/dashboard?id=petriflow_petriflow.js)
+[![Known Vulnerabilities](https://snyk.io/test/github/petriflow/petriflow.js/badge.svg)](https://snyk.io/test/github/petriflow/petriflow.js)
 
 > Petriflow in JavaScript world
 
@@ -64,7 +64,7 @@ The class can be used to parse the whole file at once or parse only parts of the
 ```javascript
 import {ImportService, PetriNetResult} from '@netgrif/petriflow';
 
-fetch('https://raw.githubusercontent.com/netgrif/petriflow/main/examples/order-approval.xml').then(result => {
+fetch('https://raw.githubusercontent.com/petriflow/petriflow/main/examples/order-approval.xml').then(result => {
     const net = new ImportService().parseFromXml(result);
     console.log('Net id: ' + net.model.id); 
 });
