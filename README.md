@@ -5,7 +5,7 @@
 [![Petriflow 1.0.1](https://img.shields.io/badge/Petriflow-1.0.1-0aa8ff)](https://petriflow.com)
 [![npm (scoped)](https://img.shields.io/npm/v/@netgrif/petriflow)](https://www.npmjs.com/package/@netgrif/petriflow)
 [![npm](https://img.shields.io/npm/dt/@netgrif/petriflow)](https://www.npmjs.com/package/@netgrif/petriflow)
-[![build](https://github.com/netgrif/petriflow.js/actions/workflows/master-build.yml/badge.svg)](https://github.com/netgrif/petriflow.js/actions/workflows/release-build.yml)
+[![build](https://github.com/petriflow/petriflow.js/actions/workflows/master-build.yml/badge.svg)](https://github.com/petriflow/petriflow.js/actions/workflows/release-build.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=netgrif_petriflow.js&metric=alert_status)](https://sonarcloud.io/dashboard?id=netgrif_petriflow.js)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=netgrif_petriflow.js&metric=coverage)](https://sonarcloud.io/dashboard?id=netgrif_petriflow.js)
 [![Known Vulnerabilities](https://snyk.io/test/github/netgrif/petriflow.js/badge.svg)](https://snyk.io/test/github/netgrif/petriflow.js)
@@ -51,7 +51,7 @@ The library is also published with type declaration and so your TypeScript proje
 ### Petriflow model
 
 The library contains every object, constant, and structure to fully interpret Petriflow source code files in JavaScript.
-The root object is a [PetriNet](https://github.com/netgrif/petriflow.js/blob/master/src/lib/model/petri-net.ts) which contains all information from the Petriflow process. Every object in the library has
+The root object is a [PetriNet](https://github.com/petriflow/petriflow.js/blob/master/src/lib/model/petri-net.ts) which contains all information from the Petriflow process. Every object in the library has
 `T.clone() => T` method to make a deep copy of the object.
 
 ### Import service
@@ -87,7 +87,7 @@ console.log(xml);
 
 ## Reporting issues
 
-If you find a bug, let us know. First, please read our [Contribution guide](https://github.com/netgrif/petriflow.js/blob/master/CONTRIBUTING.md)
+If you find a bug, let us know. First, please read our [Contribution guide](https://github.com/petriflow/petriflow.js/blob/master/CONTRIBUTING.md)
 
 ## License
 

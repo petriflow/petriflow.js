@@ -19,8 +19,8 @@ kind, help make Petriflow a community where new faces feel welcome and old hands
 ### Reporting bugs
 
 If you've found a bug in the Petriflow objects or in utility functions, let us know about it.
-* Search the [Issues](https://github.com/netgrif/petriflow.js/issues) to check we're not already tracking it.
-* If you can't find an open issue that describes your problem, [open a new one](https://github.com/netgrif/petriflow.js/issues/new).
+* Search the [Issues](https://github.com/petriflow/petriflow.js/issues) to check we're not already tracking it.
+* If you can't find an open issue that describes your problem, [open a new one](https://github.com/petriflow/petriflow.js/issues/new).
   * Include a **title and clear description**
   * Describe:
     * What you did (ideally with a code sample)
@@ -40,8 +40,8 @@ If you've fixed an open bug - awesome! You're a true Petriflow developer.
 ### Contributing Features
 
 If you've got a great idea for the Petriflow language feature, start by checking 
-[issues](https://github.com/netgrif/petriflow.js/issues?q=is%3Aissue+label%3Aenhancement) to check we're not already tracking it, or that your idea
+[issues](https://github.com/petriflow/petriflow.js/issues?q=is%3Aissue+label%3Aenhancement) to check we're not already tracking it, or that your idea
 hasn't already been rejected.
 
-If not, start by [opening an issue](https://github.com/netgrif/petriflow.js/issues/new) that describes your idea. 
+If not, start by [opening an issue](https://github.com/petriflow/petriflow.js/issues/new) that describes your idea. 
 Do not be afraid of rejection, every excellent idea has to start somewhere. Give it a well described solution to the problem which your proposition is trying to solve.

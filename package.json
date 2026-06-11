@@ -7,13 +7,13 @@
     "types": "dist/petriflow.d.ts",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/netgrif/petriflow.js.git"
+        "url": "https://github.com/petriflow/petriflow.js"
     },
     "license": "Apache-2.0",
     "bugs": {
-        "url": "https://github.com/netgrif/petriflow.js/issues"
+        "url": "https://github.com/petriflow/petriflow.js/issues"
     },
-    "homepage": "https://netgrif.github.io/petriflow.js/",
+    "homepage": "https://petriflow.github.io/petriflow.js/",
     "keywords": [
         "petriflow",
         "pf",
