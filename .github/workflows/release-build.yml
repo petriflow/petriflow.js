@@ -42,8 +42,6 @@ jobs:
       - name: Publish petriflow.js latest release
         if: ${{ !contains(steps.get_version.outputs.version,'-') }}
         run: npm publish --access public --tag latest
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish-gpr:
     needs: build
