@@ -58,7 +58,7 @@ const MODEL_ROLES_LENGTH = 4;
 const MODEL_TRANSITIONS_LENGTH = 13;
 const MODEL_PLACES_LENGTH = 12;
 const MODEL_ARCS_LENGTH = 17;
-const MODEL_DATA_LENGTH = 27;
+const MODEL_DATA_LENGTH = 29;
 const MODEL_USERREFS_LENGTH = 2;
 const ROLE_1_ID = 'newRole_1';
 const ROLE_2_ID = 'newRole_2';
@@ -446,6 +446,12 @@ describe('Petriflow integration tests', () => {
         expect(processFilterField).not.toBeUndefined();
         expect(processFilterField.init).not.toBeUndefined();
         expect(processFilterField.type).toEqual(DataType.PROCESS_FILTER)
+        const processRefField = model.getData('newVariable_25');
+        expect(processRefField).not.toBeUndefined();
+        expect(processRefField.type).toEqual(DataType.PROCESS_REF)
+        const collectionField = model.getData('newVariable_26');
+        expect(collectionField).not.toBeUndefined();
+        expect(collectionField.type).toEqual(DataType.STRING_COLLECTION)
         log('Model data correct');
 
         expect(model.getI18ns().length).toEqual(3);

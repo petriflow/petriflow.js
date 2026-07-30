@@ -524,6 +524,14 @@
         <title>title</title>
         <init>*</init>
     </data>
+    <data type="processRef">
+        <id>newVariable_25</id>
+        <title>title</title>
+    </data>
+    <data type="stringCollection">
+        <id>newVariable_26</id>
+        <title>title</title>
+    </data>
     <!-- I18NS -->
     <i18n locale="uk">
         <i18nString name="title">UK_title</i18nString>

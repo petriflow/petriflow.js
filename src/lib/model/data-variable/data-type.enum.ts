@@ -15,9 +15,11 @@ export enum DataType {
     BUTTON = 'button',
     TASK_REF = 'taskRef',
     CASE_REF = 'caseRef',
+    PROCESS_REF = 'processRef',
     FILTER = 'filter',
     CASE_FILTER = 'caseFilter',
     TASK_FILTER = 'taskFilter',
     PROCESS_FILTER = 'processFilter',
+    STRING_COLLECTION = 'stringCollection',
     I18N = 'i18n'
 }
