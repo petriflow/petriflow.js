@@ -2,9 +2,9 @@
 
 [![GitHub](https://img.shields.io/github/license/petriflow/petriflow.js)](https://www.apache.org/licenses/LICENSE-2.0)
 [![npm dev dependency version (scoped)](https://img.shields.io/npm/dependency-version/@netgrif/petriflow/dev/typescript?label=Typescript)](https://www.typescriptlang.org/)
-[![Petriflow 1.0.1](https://img.shields.io/badge/Petriflow-1.0.1-0aa8ff)](https://petriflow.com)
+[![Petriflow 1.0.9](https://img.shields.io/badge/Petriflow-1.0.9-0aa8ff)](https://petriflow.com)
 [![npm (scoped)](https://img.shields.io/npm/v/@netgrif/petriflow)](https://www.npmjs.com/package/@netgrif/petriflow)
-[![npm](https://img.shields.io/npm/dt/@netgrif/petriflow)](https://www.npmjs.com/package/@petriflow/petriflow)
+[![npm](https://img.shields.io/npm/dt/@netgrif/petriflow)](https://www.npmjs.com/package/@netgrif/petriflow)
 [![build](https://github.com/petriflow/petriflow.js/actions/workflows/master-build.yml/badge.svg)](https://github.com/petriflow/petriflow.js/actions/workflows/release-build.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=petriflow_petriflow.js&metric=alert_status)](https://sonarcloud.io/dashboard?id=petriflow_petriflow.js)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=petriflow_petriflow.js&metric=coverage)](https://sonarcloud.io/dashboard?id=petriflow_petriflow.js)
