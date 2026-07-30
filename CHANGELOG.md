@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.2.2](https://github.com/petriflow/petriflow.js/releases/tag/v2.2.2) (2025-09-03)
 
 ### Fixed
-- Fix global roles flag from tag to role element attribute by @tuplle in #57
+- Fix global roles flag from tag to role element attribute
 
 ## [2.2.1](https://github.com/petriflow/petriflow.js/releases/tag/v2.2.1) (2025-05-07)
 
