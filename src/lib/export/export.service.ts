@@ -1,7 +1,7 @@
 import {
     Arc,
     AssignPolicy,
-    CaseEvent,
+    CaseEventType,
     Component,
     DataFocusPolicy,
     DataGroup,
@@ -14,7 +14,7 @@ import {
     LayoutType,
     NodeElement,
     PetriNet,
-    ProcessEvent,
+    ProcessEventType,
     ProcessPermissionRef,
     TransitionEvent,
     TransitionLayout,
@@ -99,15 +99,25 @@ export class ExportService {
         });
     }
 
+    public exportProcessEvents(doc: Element, model: PetriNet): void {
+        this.exportProcessTypeEvent(model.getProcessEvents(), 'processEvents', doc);
+        this.exportProcessTypeEvent(model.getCaseEvents(), 'caseEvents', doc);
+    }
+
+    public exportProcessTypeEvent(processEvents: Event<ProcessEventType | CaseEventType>[], tagName: string, doc: Element): void {
+        if (processEvents.length === 0) {
+            return;
+        }
+        const processEventsElement = this.xmlConstructor.createElement(tagName);
+        processEvents.forEach(event => {
+            this.exportEvent(processEventsElement, event);
+        });
+        doc.appendChild(processEventsElement);
+    }
+
     public exportEvent<T>(element: Element, event: Event<T>): void {
         if (event.isEmpty()) {
             return;
-        }
-        let exportProcessEvent;
-        if (event instanceof ProcessEvent) {
-            exportProcessEvent = this.xmlConstructor.createElement('processEvents');
-        } else if (event instanceof CaseEvent) {
-            exportProcessEvent = this.xmlConstructor.createElement('caseEvents');
         }
         const exportEvent = this.xmlConstructor.createElement('event');
         this._exportUtils.exportTag(exportEvent, 'id', event.id);
@@ -122,12 +132,7 @@ export class ExportService {
         if (event.postActions.length > 0) {
             this._exportUtils.exportActions(exportEvent, event, 'post');
         }
-        if ((event instanceof ProcessEvent || event instanceof CaseEvent) && !!exportProcessEvent) {
-            exportProcessEvent.appendChild(exportEvent);
-            element.appendChild(exportProcessEvent);
-        } else {
-            element.appendChild(exportEvent);
-        }
+        element.appendChild(exportEvent);
     }
 
     public exportProcessRefs(doc: Element, model: PetriNet): void {
@@ -161,15 +166,6 @@ export class ExportService {
             this._exportUtils.exportLogic(transRef, ref.logic, 'logic');
             element.appendChild(transRef);
         }
-    }
-
-    public exportProcessEvents(doc: Element, model: PetriNet): void {
-        model.getProcessEvents().forEach(event => {
-            this.exportEvent(doc, event);
-        });
-        model.getCaseEvents().forEach(event => {
-            this.exportEvent(doc, event);
-        });
     }
 
     public exportData(doc: Element, model: PetriNet): void {
