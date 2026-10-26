@@ -154,6 +154,7 @@ export class Transition extends NodeElement {
     public clone(): Transition {
         const cloned = new Transition(this.x, this.y, this.id);
         cloned.label = this.label?.clone();
+        cloned.comment = this.comment;
         cloned._layout = this._layout?.clone();
         cloned._icon = this._icon;
         cloned._priority = this._priority;

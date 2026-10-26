@@ -88,6 +88,21 @@ export class ExportUtils {
         this.exportTag(doc, name, value?.value, false, attributes, value?.dynamic);
     }
 
+    public exportComment(doc: Element, comment: string | undefined): void {
+        if (comment === undefined || comment.trim().length === 0) {
+            return;
+        }
+        const element = this.xmlConstructor.createElement('comment');
+        // CDATA section cannot contain ']]>', split it into consecutive sections
+        const parts = comment.split(']]>');
+        parts.forEach((part, index) => {
+            const prefix = index === 0 ? '\n' : '>';
+            const suffix = index === parts.length - 1 ? '\n' : ']]';
+            element.appendChild(this.xmlConstructor.createCDATASection(`${prefix}${part}${suffix}`));
+        });
+        doc.appendChild(element);
+    }
+
     public exportActions<T>(element: Element, event: Event<T>, phase: string): void {
         const actions = this.xmlConstructor.createElement('actions');
         actions.setAttribute('phase', phase);

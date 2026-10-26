@@ -9,6 +9,7 @@ export abstract class Arc<S extends NodeElement, D extends NodeElement> extends 
     private _multiplicity: number;
     private _reference?: string;
     private _breakpoints: Array<Breakpoint>;
+    private _comment?: string;
 
     constructor(source: S, target: D, id: string) {
         super(id);
@@ -68,10 +69,19 @@ export abstract class Arc<S extends NodeElement, D extends NodeElement> extends 
         this._breakpoints = value;
     }
 
+    get comment(): string | undefined {
+        return this._comment;
+    }
+
+    set comment(value: string | undefined) {
+        this._comment = value;
+    }
+
     cloneAttributes(cloned: Arc<S, D>): void {
         cloned._multiplicity = this._multiplicity;
         cloned._reference = this._reference;
         cloned._breakpoints = this._breakpoints?.map(bp => bp.clone());
+        cloned._comment = this._comment;
     }
 
     abstract clone(): Arc<S, D>;

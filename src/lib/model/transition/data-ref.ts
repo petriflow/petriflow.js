@@ -8,6 +8,7 @@ export class DataRef extends DataEventSource {
     private _logic: DataRefLogic;
     private _layout: DataLayout;
     private _component?: Component;
+    private _comment?: string;
 
     constructor(id: string) {
         super();
@@ -48,11 +49,20 @@ export class DataRef extends DataEventSource {
         this._component = value;
     }
 
+    get comment(): string | undefined {
+        return this._comment;
+    }
+
+    set comment(value: string | undefined) {
+        this._comment = value;
+    }
+
     public clone(): DataRef {
         const cloned = new DataRef(this._id);
         cloned._logic = this._logic?.clone();
         cloned._layout = this._layout?.clone();
         cloned._component = this._component?.clone();
+        cloned._comment = this._comment;
         this.getEvents().forEach(event => cloned.addEvent(event.clone()));
         return cloned;
     }

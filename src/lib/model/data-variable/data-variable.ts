@@ -12,6 +12,7 @@ export class DataVariable extends DataEventSource {
     private _title: I18nString;
     private _placeholder: I18nString;
     private _desc: I18nString;
+    private _comment?: string;
     private _options: Array<Option>;
     private _optionsInit?: Expression;
     private _validations: Array<Validation>;
@@ -71,6 +72,14 @@ export class DataVariable extends DataEventSource {
 
     set desc(value: I18nString) {
         this._desc = value;
+    }
+
+    get comment(): string | undefined {
+        return this._comment;
+    }
+
+    set comment(value: string | undefined) {
+        this._comment = value;
     }
 
     get options(): Array<Option> {
@@ -182,6 +191,7 @@ export class DataVariable extends DataEventSource {
         cloned._title = this._title?.clone();
         cloned._placeholder = this._placeholder?.clone();
         cloned._desc = this._desc?.clone();
+        cloned._comment = this._comment;
         cloned._options = this._options?.map(o => o.clone());
         cloned._optionsInit = this._optionsInit?.clone();
         cloned._validations = this._validations?.map(v => v.clone());

@@ -31,6 +31,7 @@ export class Place extends NodeElement {
         const cloned = new Place(this.x, this.y, this.static, this.id);
         cloned.label = this.label?.clone();
         cloned._marking = this._marking;
+        cloned.comment = this.comment;
         return cloned;
     }
 }

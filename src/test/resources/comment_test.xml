@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://petriflow.com/petriflow.schema.xsd">
+    <id>comment_test</id>
+    <initials>CMT</initials>
+    <title>Comment test</title>
+    <comment><![CDATA[
+        # Process comment
+
+        Explains **why** the process looks like this.
+
+            indented code block
+    ]]></comment>
+    <role>
+        <id>manager</id>
+        <title>Manager</title>
+        <comment><![CDATA[Role comment with <b>html</b> & entities]]></comment>
+    </role>
+    <role>
+        <id>clerk</id>
+        <title>Clerk</title>
+    </role>
+    <data type="text">
+        <id>amount</id>
+        <title>Amount</title>
+        <desc>Description</desc>
+        <comment><![CDATA[Data comment]]></comment>
+    </data>
+    <data type="text">
+        <id>note</id>
+        <title>Note</title>
+    </data>
+    <transition>
+        <id>approve</id>
+        <x>300</x>
+        <y>100</y>
+        <label>Approve</label>
+        <comment><![CDATA[Transition comment]]></comment>
+        <dataGroup>
+            <id>approve_group</id>
+            <layout>grid</layout>
+            <dataRef>
+                <id>amount</id>
+                <comment><![CDATA[Data ref comment]]></comment>
+                <logic>
+                    <behavior>editable</behavior>
+                </logic>
+                <layout>
+                    <x>0</x>
+                    <y>0</y>
+                    <rows>1</rows>
+                    <cols>2</cols>
+                </layout>
+            </dataRef>
+            <dataRef>
+                <id>note</id>
+                <logic>
+                    <behavior>visible</behavior>
+                </logic>
+                <layout>
+                    <x>2</x>
+                    <y>0</y>
+                    <rows>1</rows>
+                    <cols>2</cols>
+                </layout>
+            </dataRef>
+        </dataGroup>
+    </transition>
+    <transition>
+        <id>reject</id>
+        <x>300</x>
+        <y>300</y>
+        <label>Reject</label>
+        <comment>Plain <i>html</i> without cdata</comment>
+    </transition>
+    <place>
+        <id>start</id>
+        <x>100</x>
+        <y>100</y>
+        <label>Start</label>
+        <comment><![CDATA[Place comment]]></comment>
+        <tokens>1</tokens>
+        <static>false</static>
+    </place>
+    <place>
+        <id>end</id>
+        <x>500</x>
+        <y>100</y>
+        <label>End</label>
+        <tokens>0</tokens>
+        <static>false</static>
+    </place>
+    <arc>
+        <id>a1</id>
+        <comment><![CDATA[Arc comment]]></comment>
+        <type>regular</type>
+        <sourceId>start</sourceId>
+        <destinationId>approve</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+    <arc>
+        <id>a2</id>
+        <type>regular</type>
+        <sourceId>approve</sourceId>
+        <destinationId>end</destinationId>
+        <multiplicity>1</multiplicity>
+    </arc>
+</document>
