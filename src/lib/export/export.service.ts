@@ -61,6 +61,7 @@ export class ExportService {
         this._exportUtils.exportTag(doc, 'version', model.version);
         this._exportUtils.exportTag(doc, 'initials', model.initials, true);
         this._exportUtils.exportI18nString(doc, 'title', model.title, true);
+        this._exportUtils.exportComment(doc, model.comment);
         this._exportUtils.exportTag(doc, 'icon', model.icon);
         this._exportUtils.exportTag(doc, 'defaultRole', model.defaultRole !== undefined ? (model.defaultRole.toString()) : '');
         this._exportUtils.exportTag(doc, 'anonymousRole', model.anonymousRole !== undefined ? (model.anonymousRole.toString()) : '');
@@ -86,6 +87,7 @@ export class ExportService {
             }
             this._exportUtils.exportTag(role, 'id', item.id, true);
             this._exportUtils.exportI18nString(role, 'title', item.title, true);
+            this._exportUtils.exportComment(role, item.comment);
             item.getEvents().forEach(event => {
                 this.exportEvent(role, event);
             });
@@ -179,6 +181,7 @@ export class ExportService {
             this._exportUtils.exportI18nString(exportData, 'title', data.title, true);
             this._exportUtils.exportI18nString(exportData, 'placeholder', data.placeholder);
             this._exportUtils.exportI18nString(exportData, 'desc', data.desc);
+            this._exportUtils.exportComment(exportData, data.comment);
             if (data.options.length > 0) {
                 const options = this.xmlConstructor.createElement('options');
                 data.options.forEach(opt => this._exportUtils.exportOption(options, 'option', opt));
@@ -261,6 +264,7 @@ export class ExportService {
             this._exportUtils.exportTag(exportTrans, 'x', trans.x?.toString(), true);
             this._exportUtils.exportTag(exportTrans, 'y', trans.y?.toString(), true);
             this._exportUtils.exportI18nString(exportTrans, 'label', trans.label, true);
+            this._exportUtils.exportComment(exportTrans, trans.comment);
             this._exportUtils.exportTags(exportTrans, trans.tags);
             if (trans.layout && !trans.layout.empty()) {
                 this.exportTransitionLayout(exportTrans, trans.layout);
@@ -317,6 +321,7 @@ export class ExportService {
     public exportDataRef(element: Element, dataRef: DataRef): void {
         const exportDataRef = this.xmlConstructor.createElement('dataRef');
         this._exportUtils.exportTag(exportDataRef, 'id', dataRef.id, true);
+        this._exportUtils.exportComment(exportDataRef, dataRef.comment);
         if (dataRef.logic.behavior || dataRef.logic.actionRefs?.length > 0) {
             const logic = this.xmlConstructor.createElement('logic');
             if (dataRef.logic.behavior) {
@@ -426,6 +431,7 @@ export class ExportService {
             this._exportUtils.exportTag(exportPlace, 'x', place.x?.toString(), true);
             this._exportUtils.exportTag(exportPlace, 'y', place.y?.toString(), true);
             this._exportUtils.exportI18nString(exportPlace, 'label', place.label);
+            this._exportUtils.exportComment(exportPlace, place.comment);
             this._exportUtils.exportTag(exportPlace, 'tokens', place.marking?.toString());
             this._exportUtils.exportTag(exportPlace, 'static', place.static?.toString());
             doc.appendChild(exportPlace);
@@ -436,6 +442,7 @@ export class ExportService {
         model.getArcs().sort((a, b) => a.compare(b)).forEach(arc => {
             const exportArc = this.xmlConstructor.createElement('arc');
             this._exportUtils.exportTag(exportArc, 'id', arc.id, true);
+            this._exportUtils.exportComment(exportArc, arc.comment);
             this._exportUtils.exportTag(exportArc, 'type', this._exportUtils.exportArcType(arc.type));
             this._exportUtils.exportTag(exportArc, 'sourceId', arc.source.id);
             this._exportUtils.exportTag(exportArc, 'destinationId', arc.destination.id);

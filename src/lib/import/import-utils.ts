@@ -126,6 +126,38 @@ export class ImportUtils {
         return lines.map(line => line.substring(commonIndent)).join('\n');
     }
 
+    public parseComment(xmlTag: Element | Document): string | undefined {
+        const parent = xmlTag.nodeName === '#document' ? (xmlTag as Document).documentElement : xmlTag as Element;
+        const xmlComment = Array.from(parent?.children ?? []).find(child => child.nodeName === 'comment');
+        if (!xmlComment) {
+            return undefined;
+        }
+        let content = '';
+        for (const node of Array.from(xmlComment.childNodes)) {
+            if (node.nodeName === '#text' || node.nodeName === '#cdata-section') {
+                content += node.nodeValue ?? '';
+            } else if (node.nodeName !== '#comment') {
+                // HTML written without CDATA is parsed as elements, keep it as markup
+                content += new XMLSerializer().serializeToString(node);
+            }
+        }
+        const comment = this.removeCommentIndents(content);
+        return comment === '' ? undefined : comment;
+    }
+
+    public removeCommentIndents(comment: string): string {
+        const lines = comment.split(/\r?\n/);
+        while (lines.length > 0 && lines[0].trim().length === 0) {
+            lines.shift();
+        }
+        while (lines.length > 0 && lines[lines.length - 1].trim().length === 0) {
+            lines.pop();
+        }
+        const indents = lines.filter(line => line.trim().length !== 0).map(line => line.length - line.trimStart().length);
+        const commonIndent = indents.length > 0 ? Math.min(...indents) : 0;
+        return lines.map(line => line.substring(commonIndent)).join('\n');
+    }
+
     public parseEncryption(xmlTag: Element): string | undefined {
         const encryption = this.tagValue(xmlTag, 'encryption');
         if (!encryption || encryption !== 'true') {
@@ -293,6 +325,7 @@ export class ImportUtils {
 
     public parseDataRef(xmlDataRef: Element, index: number): DataRef {
         const dataRef = new DataRef(this.tagValue(xmlDataRef, 'id'));
+        dataRef.comment = this.parseComment(xmlDataRef);
         for (const xmlEvent of Array.from(xmlDataRef.getElementsByTagName('event'))) {
             const event = new DataEvent(this.tagAttribute(xmlEvent, 'type') as DataEventType, '');
             this.parseEvent(xmlEvent, event);

@@ -5,6 +5,7 @@ export abstract class NodeElement extends Element {
     private _x: number;
     private _y: number;
     private _label: I18nString;
+    private _comment?: string;
 
     protected constructor(id: string, x: number, y: number, label: I18nString) {
         super(id);
@@ -35,5 +36,13 @@ export abstract class NodeElement extends Element {
 
     set label(value: I18nString) {
         this._label = value;
+    }
+
+    get comment(): string | undefined {
+        return this._comment;
+    }
+
+    set comment(value: string | undefined) {
+        this._comment = value;
     }
 }

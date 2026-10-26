@@ -10,6 +10,7 @@ export class Role extends EventSource<RoleEvent, RoleEventType> {
     private _id: string;
     private _title: I18nString;
     private _global: boolean;
+    private _comment?: string;
 
     constructor(id: string) {
         super();
@@ -42,10 +43,19 @@ export class Role extends EventSource<RoleEvent, RoleEventType> {
         this._global = value;
     }
 
+    get comment(): string | undefined {
+        return this._comment;
+    }
+
+    set comment(value: string | undefined) {
+        this._comment = value;
+    }
+
     public clone(): Role {
         const cloned = new Role(this._id);
         cloned._title = this._title?.clone();
         cloned._global = this._global;
+        cloned._comment = this._comment;
         this.getEvents().forEach(event => cloned.addEvent(event.clone()));
         return cloned;
     }

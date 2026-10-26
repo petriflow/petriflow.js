@@ -125,6 +125,7 @@ export class ImportService {
             modelResult.model.anonymousRole = this.importUtils.tagValue(xmlDoc, 'anonymousRole') === '' ? ImportService.ANONYMOUS_ROLE_DEFAULT_VALUE : this.importUtils.tagValue(xmlDoc, 'anonymousRole') === 'true';
             modelResult.model.transitionRole = this.importUtils.tagValue(xmlDoc, 'transitionRole') === '' ? ImportService.TRANSITION_ROLE_DEFAULT_VALUE : this.importUtils.tagValue(xmlDoc, 'transitionRole') === 'true';
             modelResult.model.title = this.importUtils.parseI18n(xmlDoc, 'title');
+            modelResult.model.comment = this.importUtils.parseComment(xmlDoc);
             modelResult.model.caseName = this.importUtils.parseI18nWithDynamic(xmlDoc, 'caseName');
             modelResult.model.tags = this.importUtils.parseTags(xmlDoc);
         } catch (e: unknown) {
@@ -150,6 +151,7 @@ export class ImportService {
         }
         role.title = title;
         role.global = this.importUtils.tagAttribute(xmlRole, 'global') === 'true';
+        role.comment = this.importUtils.parseComment(xmlRole);
         for (const xmlEvent of Array.from(xmlRole.getElementsByTagName('event'))) {
             const event = new RoleEvent(this.importUtils.tagAttribute(xmlEvent, 'type') as RoleEventType, '');
             event.message = this.importUtils.parseI18n(xmlEvent, 'message');
@@ -216,6 +218,7 @@ export class ImportService {
         data.title = this.importUtils.parseI18n(xmlData, 'title');
         data.placeholder = this.importUtils.parseI18n(xmlData, 'placeholder');
         data.desc = this.importUtils.parseI18n(xmlData, 'desc');
+        data.comment = this.importUtils.parseComment(xmlData);
         data.immediate = this.importUtils.tagAttribute(xmlData, 'immediate') === 'true';
         data.encryption = this.importUtils.parseEncryption(xmlData);
         data.init = this.importUtils.resolveInit(xmlData);
@@ -433,6 +436,7 @@ export class ImportService {
             if (this.importUtils.checkLengthAndNodes(xmlTrans, 'label')) {
                 trans.label = this.importUtils.parseI18n(xmlTrans, 'label');
             }
+            trans.comment = this.importUtils.parseComment(xmlTrans);
             trans.icon = this.importUtils.tagValue(xmlTrans, 'icon');
             trans.priority = parseInt(this.importUtils.tagValue(xmlTrans, 'priority'), 10);
             const assignPolicy = this.importUtils.tagValue(xmlTrans, 'assignPolicy');
@@ -567,6 +571,7 @@ export class ImportService {
     public parsePlace(model: PetriNet, xmlPlace: Element, place: Place): void {
         model.addPlace(place);
         place.marking = this.importUtils.parseNumberValue(xmlPlace, 'tokens') ?? 0;
+        place.comment = this.importUtils.parseComment(xmlPlace);
         if (xmlPlace.getElementsByTagName('label').length > 0 &&
             xmlPlace.getElementsByTagName('label')[0].childNodes.length !== 0) {
             place.label = this.importUtils.parseI18n(xmlPlace, 'label');
@@ -597,6 +602,7 @@ export class ImportService {
         const parsedArcType = this.importUtils.parseArcType(xmlArc);
         const arc = this.resolveArc(source, target, parsedArcType, arcId, result);
         arc.multiplicity = this.importUtils.parseNumberValue(xmlArc, 'multiplicity') ?? 0;
+        arc.comment = this.importUtils.parseComment(xmlArc);
         if (parsedArcType as string === 'variable') {
             arc.reference = xmlArc.getElementsByTagName('multiplicity')[0]?.childNodes[0]?.nodeValue ?? undefined;
             this.importUtils.checkVariability(result.model, arc, arc.reference);

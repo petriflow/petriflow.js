@@ -23,6 +23,7 @@ export class PetriNet {
     private _lastChanged: number;
     private _initials: string;
     private _title: I18nString;
+    private _comment?: string;
     private _icon: string;
     private _defaultRole: boolean;
     private _anonymousRole: boolean;
@@ -108,6 +109,14 @@ export class PetriNet {
 
     set title(value: I18nString) {
         this._title = value;
+    }
+
+    get comment(): string | undefined {
+        return this._comment;
+    }
+
+    set comment(value: string | undefined) {
+        this._comment = value;
     }
 
     get icon(): string {
@@ -414,6 +423,7 @@ export class PetriNet {
         cloned._lastChanged = this._lastChanged;
         cloned._initials = this._initials;
         cloned._title = this._title?.clone();
+        cloned._comment = this._comment;
         cloned._icon = this._icon;
         cloned._defaultRole = this._defaultRole;
         cloned._anonymousRole = this._anonymousRole;
